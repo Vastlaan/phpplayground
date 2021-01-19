@@ -1,0 +1,25 @@
+nav{
+  background-color: #222;
+  padding: 1rem;
+  width: 100vw;
+  display: flex;
+  list-style: none;
+}
+
+nav > button{
+  border:none;
+  background-color: transparent;
+  color: snow;
+  font-size: 1.4rem;
+  font-family: sans-serif;
+  margin-right: 1.4rem;
+  transition: all .3s;
+}
+nav>button:hover{
+  cursor: pointer;
+  color: var(--color-primary);
+}
+nav>button:focus, nav>button:active{
+  outline: none;
+}
+

@@ -1,0 +1,9 @@
+/* colors */
+:root{
+  --color-primary: #e61c1e;
+  --color-secondary: #b7999c;
+
+  --color-white: #dfe0e2;
+  --color-grey: #aaa;
+  --color-black: #071013
+}
