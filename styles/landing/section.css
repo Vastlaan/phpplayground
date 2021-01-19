@@ -1,23 +1,30 @@
-.variables{
+section{
   padding: 2.7rem 1.4rem;
+  scroll-margin: 3rem;
 }
 
-.variables > h3{
+section > h3{
   font-size: 2.7rem;
   color: var(--color-black);
   margin-bottom: 2.7rem;
 
 }
-.variables > p{
+section > h6{
+  font-size: 2.2rem;
+  color: var(--color-black);
+  margin-bottom: 1.4rem;
+
+}
+section > p{
   font-size: 1.4rem;
   color: var(--color-primary);
   margin-bottom: 1.9rem;
 }
 
-.variables > ul{
+section > ul{
   list-style: none;
 }
-.variables > ul >li{
+section > ul >li{
   font-size: 1.4rem;
   color: var(--color-black);
   margin-bottom: 1.4rem;

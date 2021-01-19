@@ -4,3 +4,4 @@ function scrollToElement(id){
 }
 
 document.querySelector('#btn-variables').addEventListener('click', ()=>scrollToElement('variables'))
+document.querySelector('#btn-arrays').addEventListener('click', ()=>scrollToElement('arrays'))
