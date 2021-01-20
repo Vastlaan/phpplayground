@@ -13,8 +13,10 @@
 	<nav>
 		<button id='btn-variables'>variables</button>
 		<button id='btn-arrays'>arrays</button>
+		<button id="btn-conditionals">conditionals</button>
 		<button id="btn-loops">loops</button>
 		<button id="btn-functions">functions</button>
+		<button id="btn-superglobals">superglobals</button>
 	</nav>
 
 	<header>
@@ -161,10 +163,203 @@
 		</ul>
 
 		<h6>Two dimensional arrays:</h6>
-				
-				
+
+		<ul>
 			
-		
+			<li>
+				<pre>
+					$todoItems = [
+						['title'=> 'item1', 'completed'=> true],
+						['title'=> 'item2', 'completed'=> false],
+						['title'=> 'item3', 'completed'=> false],
+					]
+					</pre>
+			</li>
+			
+			<?php
+				$todoItems = [
+					['title'=> 'item1', 'completed'=> true],
+					['title'=> 'item2', 'completed'=> false],
+					['title'=> 'item3', 'completed'=> false],
+				];
+				echo '<li> Result: <pre>',var_dump($todoItems),'</pre></li>';
+			?>
+		</ul>
+	</section>
+
+	<section class="conditionals" id="conditionals">
+
+		<h3>3. Conditionals</h3>
+		<p>very simialr to js (==, ===, !=, !==, <>(this is the same as !=), >=, <=, &&, ||, )</p>
+		<ul>
+				<li>if($age === 35){...}elseif{...}else{...}</li>
+				<?php
+					if($age === 35){
+						echo '<li> You are 35 years old</li>';
+					}else{
+						echo '<li>You are not 35 yo!</li>';
+					};
+				?>
+		</ul>
+		<h6>Ternary operator</h6>
+		<p>same as in js:  echo $age === 25 ? "you're 25" : "you're not 25";</p>
+		<p>however it has something like coalescing assignment:  echo $age ?? 33;  This will print $age if it exists, ohterwise it will print 33</p>
+		<ul>
+					<?php
+						echo '<li>',$age === 25 ? "You're 25" : "You're not 25" , "</li>";
+					?>
+		</ul>
+		<h6>Switch statement</h6>
+		<p>the same as in js</p>
+		<ul>
+					<li><pre>
+						switch($userRole){
+							case 'admin':
+								echo 'You are admin';
+								break;
+							case 'editor':
+								echo 'You can edit articles';
+								break;
+							default:
+								echo 'Role unknown';
+						}
+					</pre></li>
+
+					<?php
+						$userRole = 'editor';
+						switch ($userRole){
+							case 'admin':
+								echo '<li>you are admin</li>';
+								break;
+							case 'editor':
+								echo '<li>you are editor</li>';
+								break;
+							default:
+								echo '<li>role unknown</li>';
+						}
+					?>
+		</ul>
+	
+	</section>
+
+	<section class="loops" id="loops">
+			<h3>4. Loops</h3>
+			<h6>While</h6>
+			<ul>
+				<li>
+					<pre>
+						while($counter<=5){
+							echo "Counter: $counter";
+							$counter++;
+						}
+					</pre>
+				</li>
+				<?php
+					$counter = 0;
+					while($counter <=5){
+						echo "<li>Counter: $counter </li>";
+						$counter++;
+					}
+				?>
+			</ul>
+			<h6>do - while</h6>
+			<ul>
+				<li>
+					<pre>
+						do{
+							echo $age;
+							age--;
+						}while($age < 0);
+					</pre>
+				</li>
+			</ul>
+			<h6>for</h6>
+			<ul>
+				<li>
+					<pre>
+						for($i; $i < 10; $i++){
+							echo $i;
+						}
+					</pre>
+				</li>
+			</ul>
+			<h6>foreach</h6>
+			<ul>
+				<li>
+					<pre>
+						foreach($person as $key => $value){
+							echo $key , $value;
+						};
+					</pre>
+				</li>
+				<?php
+					foreach($person as $key => $value){
+						echo '<li>', $key,': ',$value,'</li>';
+					};
+				?>
+			</ul>
+	</section>
+
+	<section class="functions" id="functions">
+		<h3>Functions</h3>
+
+		<ul>
+			<li>
+				<pre>
+					function getButton($arg){
+						echo "<button>$arg</button>";
+					}
+					getButton($person['name'])
+				</pre>
+			</li>
+
+			<?php
+			
+					function getButton($arg){
+						echo "<button>$arg</button>";
+					};
+
+					echo '<li>', getButton($person['name']) ,'</li>';
+					
+			?>
+
+			<li>
+				<pre>
+					// with converting args to array
+					function sumOfNumbers(...$numbers){
+						return array_reduce( $numbers, fn($acc,$n)=>$acc + $n);
+					};
+					echo sumOfNumbers(2,4,5,99);
+				</pre>
+			</li>
+			<?php
+				function sumOfNumbers(...$numbers){
+					return array_reduce($numbers, fn($acc, $n)=>$acc+$n);
+				};
+				echo '<li>',sumOfNumbers(2,4,5,99),'</li>';
+			?>
+
+
+		</ul>
+
+		<ul>
+				<li>
+					<pre>Build in time() and date() functions:
+						date(Y-m-d H:i:s);
+						$dateString = '2021-01-20 20:07:00';
+						echo date_parse($dateString); //converts string to date
+					</pre>
+				</li>
+
+				<?php
+					$dateString = '2021-01-20 20:07:00';
+					echo '<li>Convert string to date object(array)<pre>',var_dump(date_parse($dateString)),'</pre></li>';
+				?>
+		</ul>
+	</section>
+
+	<section class="superglobals" id="superglobals">
+				<h3>Superglobals</h3>
 	</section>
 
 	<section class="test">
