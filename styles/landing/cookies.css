@@ -1,0 +1,6 @@
+.important__message{
+  font-size: 2.2rem;
+  color: orangered;
+  text-transform: uppercase;
+  display: block;
+}

@@ -8,4 +8,5 @@ document.querySelector('#btn-arrays').addEventListener('click', ()=>scrollToElem
 document.querySelector('#btn-conditionals').addEventListener('click', ()=>scrollToElement('conditionals'))
 document.querySelector('#btn-loops').addEventListener('click', ()=>scrollToElement('loops'))
 document.querySelector('#btn-functions').addEventListener('click', ()=>scrollToElement('functions'))
-document.querySelector('#btn-superglobals').addEventListener('click', ()=>scrollToElement('superglobals'))
+document.querySelector('#btn-forms').addEventListener('click', ()=>scrollToElement('forms'))
+document.querySelector('#btn-cookies').addEventListener('click', ()=>scrollToElement('cookies'))
