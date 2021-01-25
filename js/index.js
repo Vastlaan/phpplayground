@@ -10,3 +10,4 @@ document.querySelector('#btn-loops').addEventListener('click', ()=>scrollToEleme
 document.querySelector('#btn-functions').addEventListener('click', ()=>scrollToElement('functions'))
 document.querySelector('#btn-forms').addEventListener('click', ()=>scrollToElement('forms'))
 document.querySelector('#btn-cookies').addEventListener('click', ()=>scrollToElement('cookies'))
+document.querySelector('#btn-uploads').addEventListener('click', ()=>scrollToElement('uploads'))

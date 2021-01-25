@@ -3,6 +3,7 @@
 		session_start();
 
 		setcookie('colorsPallet', 'dark', time() + 60, '/');
+
 ?>
 
 <!DOCTYPE html>
@@ -25,175 +26,15 @@
 		<button id="btn-functions">functions</button>
 		<button id="btn-forms">forms</button>
 		<button id="btn-cookies">cookies</button>
+		<button id="btn-uploads">file uploads</button>
+		<a href="./todo/index.php"> TODO APP</a>
 	</nav>
 
-	<header>
-		<?php
-			$header1 = 'Your slogan goes here';
-			$header3 = 'And your description here, so you can communicate important message';
+	<?php include 'partials/header.php'?>
 
-			echo '<h1>' . $header1 . '</h1>';
-			echo '<h3>' . $header3 . '</h3>';
-		?>
-	</header>
+	<?php include 'partials/variables.php'?>
 
-	<section class="variables" id='variables'>
-		<h3>1.Variables </h3>
-		<p>In PHP you got mutable variables declared with $ and unmutable variables declared with define([string_name],[value]) functon. So for example:</p>
-		<p>$age =1 will be mutable (like let in js)</p>
-		<p>and define('PI',3.14) is like const in js</p>
-		<p>The aritmetic operations are same as the JavaScript: + - / * %</p>
-		<ul>
-			<?php
-
-				$flag = true;
-				$name = 'Michal';
-				$age = 35;
-				$height = 1.85;
-				define('PI',3.14) ;
-
-				echo "<li>Mutable variable: " . $name ." and unmutable:", PI , " </li>";
-				echo "<li>To gatter info about the variable we use gettype function. The flag variable type is: " , gettype($flag) , "</li>";
-				echo "<li>var_dump function returns informations about variable: " , var_dump($age) , "</li>";
-				echo "<li>The var_dump function has to be concatenated with coma ',' not via '.', which is the string concatination operator:" , var_dump($height) , "</li>";
-				echo "<li>You can also print multiple variables in var_dump function separated with coma var_dump(\$height,\$name):" , var_dump($height, $name) ,'</li>';
-				echo "<li>You can check if var is certain type using function. Let's check if height is boolean: " , var_dump(is_bool($height)) , "</li>";
-				echo "<li>Check if mutable variable is defined with isset(\$age) will result with true: ", var_dump(isset($age)) ," .However</li>";
-				echo "<li>You can check if unmutable var is defined with defined([name_string]) like:" , var_dump(defined('PI')), "</li>";
-				echo "<li> Hereby the sum of two numbers \$age=35 and \$height=1.85 = ", $age + $height, "</li>";
-				$concatinated1 = "String with embeded name: $name";
-				echo "<li>When string is declared with double quotes we can contatinate other variable to is, here: ", $concatinated1 ,"</li>";
-				$concatinated2 = 'Single quotes string with NOT embeded name: $name';
-				echo "<li>", $concatinated2 ,"</li>";
-
-			?>
-		</ul>
-		<h6>Operations on strings: </h6>
-		<ul>
-			<?php
-				$greeting = 'Conas Atatu is an Irish greeting';
-				echo "<li>Length of string - strlen(\$str): ", strlen($greeting), " </li>";
-				echo "<li>Trim string - trim(\$str): ", trim($greeting), " </li>";
-				echo "<li>Word count - str_word_count(\$str): ", str_word_count($greeting), " </li>";
-				echo "<li>Reverse string - strrev(\$str): ", strrev($greeting), " </li>";
-				echo "<li>To uppercase - strtoupper(\$str): ", strtoupper($greeting), " </li>";
-				echo "<li>To lowercase - strtolower(\$str): ", strtolower($greeting), " </li>";
-				echo "<li>First char to uppercase - ucfirst(\$str): ", ucfirst($greeting), " </li>";
-				echo "<li>First char to lowercase - lcfirst(\$str): ", lcfirst($greeting), " </li>";
-				echo "<li>Capitalize - ucwords(\$str): ", ucwords($greeting), " </li>";
-				echo "<li>Word position - strpos(\$str, 'greeting'): ", strpos($greeting, 'greeting'), " </li>";
-				echo "<li>Word position case insensitive - stripos(\$str, 'Greeting'): ", stripos($greeting, 'Greeting'), " </li>";
-				echo "<li>String replace (insenitive) - str_ireplace([old], [new], \$str): ", str_ireplace('irish','polish', $greeting) ,"</li>";
-				echo "<li>Fill to the certain amount of char with given char - str_pad(\$str, numberOfChars, stringToFill, whichSide), for example str_pad(\$greeting, 40, '!', STR_PAD_RIGHT): ", str_pad($greeting, 40, '!', STR_PAD_RIGHT), " </li>";
-				echo "<li>Repeat string - str_repeat(\$str, [number]): ", str_repeat($greeting, 3), "</li>";
-				$longText = "
-				This is Eva.
-				<strong>Eva</strong> is female.
-				Eva likes to talk.";
-				echo "<li>How to handle long text with new lines by converting from:", $longText, " to nl2br(\$lognText)", nl2br($longText),"</li>";
-				echo "<li>And show the html tags - htmlentities(\$longText): ", htmlentities($longText), "</li>";
-			?>
-		</ul>
-	</section>
-
-	<section class="arrays" id='arrays'>
-		<h3>2.Arrays</h3>
-		<p>To declare array and access its elements is very similar to JavaScript</p>
-		<ul>
-			<?php
-				$arr=['Bannan', 'Orange', 33, true];
-				echo "<li>Declare array - \$arr=['Bannan', 'Orange', 33, true]: <pre>",var_dump($arr),"</pre></li>";
-				echo "<li>Access first element = \$arr[0]: ", $arr[0], " </li>";
-				$arr[0] = 'Apple';
-				echo "<li>Set element of array - \$arr[0]='Apple': <pre>",var_dump($arr),"</pre></li>";
-				$arr[] = 'Peach';
-				echo "<li>Append element - \$arr[]='Peach' or array_push('Peach'): <pre>",var_dump($arr),"</pre></li>";
-				echo "<li>Number of items in array - count(\$arr): ",count($arr)," </li>";
-				echo "<li>Shift removes first element and return it - array_shift(\$arr) ",array_shift($arr)," </li>";
-				echo "<li>Unshift adds element at the beggining and returns length of array- array_unshift(\$arr, 78): ",array_unshift($arr, false)," </li>";
-				echo "<li>Split string to array - explode(' ', \$longText) <pre>",var_dump(explode(" ",$longText))," </pre></li>";
-				echo "<li>Group array items to string(true evaluates to 1, false is not included) - implode(' ', \$arr): ", var_dump(implode(' ', $arr))," </li>";
-				echo "<li>Check if the element exist in array(boolean returned) - in_array('Apple', \$arr):  ",var_dump(in_array('Apple', $arr))," </li>";
-				echo "<li>Search the element in array(position in array returned) - array_search(33, \$arr):  ",array_search(33, $arr)," </li>";
-				$arr2 = ["honey", 174, "ko", "aaa"];
-				echo "<li>Merge arrays - array_merge(\$arr1, \$arr2) or with spread operator - [...\$arr1, ...\$arr2]: <pre>",var_dump([...$arr, ...$arr2]),"</pre></li>";
-				echo "<li>Sort - sort(\$arr), reverse sort - rsort(\$arr2) both modify an array!: <pre> ",sort($arr2) , var_dump($arr2),"</pre> </li>";
-				echo "<li>The filter, map and reduce operations on arrays, very similar to JS</li>";
-				$numbers = [1,3,5,6,7,8,20];
-				echo '<li>$numbers = [1,3,5,6,7,8,20]: <pre>',var_dump($numbers),'</pre></li>';
-				$filteredarray = array_filter($numbers, fn($n)=>$n % 2 === 0 );
-				echo '<li>$filteredarray = array_filter($numbers, fn($n) => $n % 2 === 0  </li>';
-				echo '<li>',var_dump($filteredarray),'</li>';
-				echo '<li>REDUCE array syntax is - array_reduce($acc, $numbers)=>$acc + $numbers</li>';
-				echo '<li>BUT MAPPING IS REVERSE!!! first callback, then array, like array_map(fn($n)=>$n * $n, $numbers)</li>';
-				$mappedArray = array_map(fn($n)=> $n * $n, $numbers);
-				echo '<li>',var_dump($mappedArray),'</li>';
-			?>
-		</ul>
-
-		<h6>Associate Arrays (like Objects in Js)</h6>
-		<ul>
-			<li><pre>
-					$person = [
-						'name' => 'Michal',
-						'surname' => 'Tower',
-						'age' => 33,
-						'hobbies' => [ 'Jogging', 'Music']
-					];
-
-					And acces it like:
-
-					$person['name'];
-					
-					assign new key:
-					$person['gender'] = 'male';
-
-					get keys:
-					array_keys($person);
-
-					get values:
-					array_values($person);
-			</pre></li>
-			<?php
-				$person = [
-						'name' => 'Michal',
-						'surname' => 'Tower',
-						'age' => 33,
-						'hobbies' => [ 'Jogging', 'Music']
-					];
-				$person['gender'] = 'male';
-
-				echo "<li>Name:", var_dump($person['name']), " </li>";
-				echo "<li>Age:", var_dump($person['age']), " </li>";
-				echo '<li>Get all keys<pre>',var_dump(array_keys($person)), '</pre></li>';
-				echo '<li>Get all values<pre>',var_dump(array_values($person)), '</pre></li>';
-			?>
-		</ul>
-
-		<h6>Two dimensional arrays:</h6>
-
-		<ul>
-			
-			<li>
-				<pre>
-					$todoItems = [
-						['title'=> 'item1', 'completed'=> true],
-						['title'=> 'item2', 'completed'=> false],
-						['title'=> 'item3', 'completed'=> false],
-					]
-					</pre>
-			</li>
-			
-			<?php
-				$todoItems = [
-					['title'=> 'item1', 'completed'=> true],
-					['title'=> 'item2', 'completed'=> false],
-					['title'=> 'item3', 'completed'=> false],
-				];
-				echo '<li> Result: <pre>',var_dump($todoItems),'</pre></li>';
-			?>
-		</ul>
-	</section>
+	<?php include 'partials/arrays.php'?>
 
 	<section class="conditionals" id="conditionals">
 
@@ -449,7 +290,7 @@
 							if(!preg_match('/^(?=[a-z]{2})(?=.{4,26})(?=[^.]*\.?[^.]*$)(?=[^_]*_?[^_]*$)[\w.]+$/iD', $username)){
 								$errors['username']= INVALID_USERNAME;
 							}	
-							if(!preg_match('^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$', $password)){
+							if(!preg_match('/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/', $password)){
 								$errors['[password'] = INVALID_PASSWORD;
 							}
 							if($password_repeated && $password && strcmp($password, $password_repeated) !==0){
@@ -547,6 +388,98 @@
 			?>
 		</ul>
 
+	</section>
+
+	<section class="forms" id="uploads">
+
+		<h3>Upload Files</h3>
+		<p>In case you want to process file from html form element, you need to add the enctype='multipart/form-data' attribute to the form.</p>
+		<p>To grab the value of input type file, you use global variable $_FILES. It prints an array of files.</p>
+	
+		<ul>
+			<?php
+
+				// // check who owns the php process
+				// echo '<li>',exec('whoami'),'</li>';
+				if(isset($_FILES['file'])){
+					echo '<li><pre>', var_dump($_FILES),'</pre></li>';
+					$checkIfImage = getimagesize($_FILES['file']['tmp_name']);
+					// check if size of the image exceeds 2MB
+					if($_FILES['file']['size'] > 1 * 1024 * 1025){
+						$errors['uploadFile'] =  'The size of the file must not exceed 1 MB';
+					}
+					// allow only true images
+					
+					// check if true im
+					elseif($checkIfImage === false){
+							$errors['uploadFile'] = 'This is not an image';
+							
+					}
+					// if no errors upload file
+					elseif(!isset($errors['uploadFile'])){
+						move_uploaded_file($_FILES['file']['tmp_name'], '/var/www/imperum.nl/uploads/'.$_FILES['file']['name']);
+					}
+					else{
+						$errors['uploadFile'] = 'Ups, something went wrong. Please try again later.';
+					}
+					
+				
+				}
+				
+			?>
+		</ul>
+		<form action="" method="POST" enctype='multipart/form-data'>
+			<input type="file" name="file" id="file" >
+			<button type="submit">Submit</button>
+			<?php echo '<small class="error">', $errors['uploadFile']??'' ,'</small>'; ?>
+		</form>
+
+		<p>the result of $_FILES is the associated array of files. Each file is an associated array with fields:</p>
+		<ul>
+			<li>name: name of the file</li>
+			<li>type: type of the file, e.g. image/jpg</li>
+			<li>tmp_name: location path where the file is temporary stored. You can process the file from this path or in order to save it permanently, move it from this location.</li>
+			<li>error: if error occurs, there is the info about it</li>
+			<li>size: size of the file</li>
+		</ul>
+		<p>in order to move the file we use build in PHP method move_uploaded_files($_FILES['file']['tmp_name'], "uploads/".$_FILES['file']['name'])</p>
+		<p>this will move file from temporary location to uploads/[file_name]</p>
+		<p class="important">Be aware of permissions given to directories on Linux system</p>
+		<p class="important">
+			To modify allowed size of upload file and its type. You don't want to allow scripts to be uploaded to your machine. 
+			This you might configure in php.ini file. On Linux it is in /etc/php/7.4/cli/php.ini. Look for: post_max_size to set up the limit and upload_max_filesize.
+			The usefull command in Linux is: php -i | grep -i "upload\_max\_filesize\|post\_max\_size\|max\_file\_uploads". <br/>
+			After that restart apache2.
+			Check type $Files['file', 'type'] against the array of allowed type.
+		</p>
+		<p>For images you can use getimagesize($_FILES['file']['tmp_name'] - this returns the true</p>
+		<p>More information about file upload validation <a href="https://www.w3schools.com/php/php_file_upload.asp">here</a></p>
+	</section>
+
+	<section class="partials">
+			<h3>Include and Require</h3>
+			<p>To include other php files within php file you will be using the include('path/to/file') or require('path/to/file')</p>
+			<p>The main difference in that if include() function won't be able to load the file, it will not stop executing the rest of the files where include function has been called.</p>
+			<p>While using require() the execution of the rest of the code in the file will be terminated. </p>
+			<p>Because the files could be include multiple times, it might not be intentioned. To prevent from including accidentaly file twice or multiple times, you will use inluce_once() or require_once() functions.</p>
+			<p>It is important to know that using require_once() is best option to include functions in the php file. This because, requiring the function twice will cause the name variable error (twice the same variable), and stoping executing the code which reliable on function execution which fails to load is also best practice.</p>
+			<p>Declaring the variable in one of php files and then using it in other is absoulutely possible, with cascading order in mind - the variable must be declared before it is called.</p>
+	</section>
+	<section class="fileSystem">
+			<ul>
+				<li>To localize the current direcory call global variable __DIR__</li>
+				<li>To localize the current file call global var __FILE__ </li>
+				<li>To make the directory, use function: mkdir('dir_name')</li>
+				<li>Rename: rename('dir_name', 'new_name')</li>
+				<li>Remove: rmdir('dir_name')</li>
+				<li>List files in current directory: scandir('path')</li>
+				<li>Retrive the content of the file: file_get_contents('path/to/file.ext')</li>
+				<li>To put content inside the file (and possibly create file if it doesn't exist): file_put_contents('file_name.ext','Some content')</li>
+				<?php
+					echo '<li><pre>',var_dump(scandir('./')),'</pre></li>';
+					echo '<li><pre>',file_get_contents('./robots.txt'),'</pre></li>';
+				?>
+			</ul>
 	</section>
 
 	<section class="test">
