@@ -18,6 +18,8 @@ nav > button{
   font-family: sans-serif;
   margin-right: 1.4rem;
   transition: all .3s;
+  text-transform: none;
+  padding: 0;
 }
 nav>button:hover{
   cursor: pointer;
@@ -25,5 +27,10 @@ nav>button:hover{
 }
 nav>button:focus, nav>button:active{
   outline: none;
+}
+nav>button> a{
+  color: var(--color-secondary);
+  text-decoration: none;
+  
 }
 

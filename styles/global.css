@@ -11,3 +11,6 @@ html{
   font-family: sans-serif;
   box-sizing: border-box;
 }
+header{
+  padding-top: 6rem;
+}

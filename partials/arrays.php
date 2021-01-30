@@ -26,11 +26,18 @@
       $filteredarray = array_filter($numbers, fn($n)=>$n % 2 === 0 );
       echo '<li>$filteredarray = array_filter($numbers, fn($n) => $n % 2 === 0  </li>';
       echo '<li>',var_dump($filteredarray),'</li>';
-      echo '<li>REDUCE array syntax is - array_reduce($acc, $numbers)=>$acc + $numbers</li>';
+      echo '<li>REDUCE array syntax is - array_reduce($numbers, fn($acc, $number)=>$acc + $number</li>';
       echo '<li>BUT MAPPING IS REVERSE!!! first callback, then array, like array_map(fn($n)=>$n * $n, $numbers)</li>';
       $mappedArray = array_map(fn($n)=> $n * $n, $numbers);
       echo '<li>',var_dump($mappedArray),'</li>';
     ?>
+
+    <li>
+      foreach (iterable_expression as $value)<br/>
+      statement<br/>
+      foreach (iterable_expression as $key => $value)<br/>
+      statement<br/>
+    </li>
   </ul>
 
   <h6>Associate Arrays (like Objects in Js)</h6>
