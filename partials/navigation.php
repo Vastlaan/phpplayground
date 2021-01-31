@@ -10,4 +10,5 @@
   <button id="btn-uploads">file uploads</button>
   <button id='btn-todoApp'> TODO APP</button>
   <button id='btn-classes'> Classes</button>
+  <button id='btn-notes'> Notes</button>
 </nav>

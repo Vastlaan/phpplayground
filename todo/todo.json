@@ -4,5 +4,8 @@
     },
     "something new": {
         "completed": true
+    },
+    "kola": {
+        "completed": false
     }
 }

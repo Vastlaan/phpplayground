@@ -13,6 +13,9 @@ function navigateTodo(){
 function navigateClasses(){
   return window.location.href = '/classes/index.php'
 }
+function navigateNotes(){
+  return window.location.href = '/notes/index.php'
+}
 
 document.querySelector('#btn-variables').addEventListener('click', ()=>scrollToElement('variables'))
 document.querySelector('#btn-arrays').addEventListener('click', ()=>scrollToElement('arrays'))
@@ -26,3 +29,4 @@ document.querySelector('#btn-uploads').addEventListener('click', ()=>scrollToEle
 document.querySelector('#btn-home').addEventListener('click', navigateHome)
 document.querySelector('#btn-todoApp').addEventListener('click', navigateTodo)
 document.querySelector('#btn-classes').addEventListener('click', navigateClasses)
+document.querySelector('#btn-notes').addEventListener('click', navigateNotes)

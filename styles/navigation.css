@@ -16,6 +16,7 @@ nav > button{
   color: snow;
   font-size: 1.4rem;
   font-family: sans-serif;
+  margin: 0;
   margin-right: 1.4rem;
   transition: all .3s;
   text-transform: none;
